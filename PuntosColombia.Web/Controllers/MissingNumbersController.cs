@@ -14,10 +14,12 @@ namespace PuntosColombia.Web.Controllers
     public class MissingNumbersController : Controller
     {
         private readonly DataContext _context;
+        private readonly IMissingNumbers _missingNumbers;
 
-        public MissingNumbersController(DataContext context)
+        public MissingNumbersController(DataContext context, IMissingNumbers missingNumbers)
         {
             _context = context;
+            _missingNumbers = missingNumbers;
         }
 
         // GET: MissingNumbers
@@ -65,8 +67,8 @@ namespace PuntosColombia.Web.Controllers
             string[] arrayB = missingNumber.ListB.Trim().Split(' ');
             var brr = Array.ConvertAll(arrayB, Int32.Parse).ToList();
 
-            MissingNumbers missingNumerbers = new MissingNumbers();
-            var resultList = missingNumerbers.SearchMissingNumbers(n, m, arr, brr);
+            
+            var resultList = _missingNumbers.SearchMissingNumbers(n, m, arr, brr);
             
             if (!resultList.Contains("Error_"))
             {

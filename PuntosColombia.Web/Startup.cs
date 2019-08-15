@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PuntosColombia.Bussiness;
 using PuntosColombia.Web.Data;
 
 namespace PuntosColombia.Web
@@ -39,7 +40,7 @@ namespace PuntosColombia.Web
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            services.AddScoped<IMissingNumbers, MissingNumbers>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

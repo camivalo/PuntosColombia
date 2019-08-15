@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PuntosColombia.Bussiness
 {
-    public class MissingNumbers
+    public class MissingNumbers : IMissingNumbers
     {
 
         public MissingNumbers()
