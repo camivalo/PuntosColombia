@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PuntosColombia.Web.Data.Entities.MissingNumber>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Missing Numbers List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Make a new search</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityListA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityListB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListResult)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityListA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityListB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListResult)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.MissingNumberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MissingNumberId">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.MissingNumberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
